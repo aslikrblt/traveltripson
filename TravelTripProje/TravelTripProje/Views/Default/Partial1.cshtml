@@ -1,0 +1,27 @@
+﻿@using TravelTripProje.Models.Sınıflar
+@model List<Blog>
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<div class=" con-bot">
+    @foreach(var x in Model)
+    {
+        <div style="width:20%;float:left;" class="left">
+
+            <div class="bot-left" >
+                <img src="@x.BlogImage" alt="" style="width:250px;height:120px;" />
+            </div>
+            <div class="left-text">
+                <h4>@x.Baslik</h4>
+                <span class="doller">@x.Tarih.ToString("dd.MM.yyyy")</span>
+                <p>@x.Aciklama.Substring(0,70)...</p>
+                <p><a href="/Blog/BlogDetay/@x.ID"><span class="read">Devamını Oku</span></a></p>
+            </div>
+        </div>
+
+    }
+	    
+</div>
+
+

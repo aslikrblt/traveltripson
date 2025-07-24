@@ -1,0 +1,35 @@
+﻿@using TravelTripProje.Models.Sınıflar
+@model List<Blog>
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<div class="padding1">
+    <h4>Favori Gezilerim</h4>
+    <div class="box-left">
+        @foreach(var x in Model)
+        {
+            <div class="bot-img">
+                <a href="/Blog/BlogDetay/@x.ID">
+                    <img src="@x.BlogImage" alt="@x.Baslik" />
+                </a>
+            </div>
+            <div class="bot-desc">
+                <p>@x.Aciklama.Substring(0,80)... </p>
+            </div>
+            <div class="clear"></div>
+        }
+    </div>
+    <div class="box1-left">
+        @{
+            var sagUc = Model.OrderByDescending(x => x.ID).Take(3).ToList();
+        }
+
+        @await Html.PartialAsync("Partial4", sagUc)
+    </div>
+    @* @{
+        var tumBloglar = Model.OrderByDescending(x => x.ID).ToList();
+        var sagUc = tumBloglar.OrderByDescending(x => x.ID).Take(3).ToList();
+    }    
+    @await Html.PartialAsync("partial4", sagUc) *@
+    
+</div>

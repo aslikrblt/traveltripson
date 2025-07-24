@@ -1,0 +1,19 @@
+﻿@using TravelTripProje.Models.Sınıflar
+@model List<Hakkimizda>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+<div class="content">
+	<div class="wrap">
+		<div class="about">
+			<h3>Hakkımızda</h3>	
+			@foreach (var x in Model)
+			{
+				<img src="@x.FotoUrl" alt="" style="margin-bottom:20px;width:800px;height:550px;" />
+				<p style="width:800px;height:100%;font-size:20px">@x.Aciklama</p>
+			}
+		</div>
+	</div>
+</div>
